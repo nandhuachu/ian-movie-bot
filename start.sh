@@ -6,7 +6,7 @@ else
   echo "Cloning Custom Repo from $UPSTREAM_REPO "
   git clone $UPSTREAM_REPO /ian-movie-bot
 fi
-cd /TheMovieProviderBot
+cd /ian-movie-bot
 pip3 install -U -r requirements.txt
-echo "Starting ian-movie-bot...."
+echo "Starting...."
 python3 bot.py
