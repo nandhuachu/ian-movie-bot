@@ -150,7 +150,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"📁 {get_size(file.file_size)} ▷ {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'{pre}#{file.file_id}'
+                    text=f"🎬{get_size(file.file_size)}🎥{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -201,10 +201,10 @@ async def next_page(bot, query):
                 off_set = offset - 10
             if n_offset == 0:
                 btn.append(
-                    [InlineKeyboardButton("«««Back", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"⚜ ᴩᴀɢᴇꜱ {math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages")]
+                    [InlineKeyboardButton("«««Back", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"⚜ {math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages")]
                 )
             elif off_set is None:
-                btn.append([InlineKeyboardButton("⚜", callback_data="pages"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages"), InlineKeyboardButton("𝙽𝚎𝚡𝚝»»»", callback_data=f"next_{req}_{key}_{n_offset}")])
+                btn.append([InlineKeyboardButton("⚜", callback_data="pages"), InlineKeyboardButton(f"⚜ {math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages"), InlineKeyboardButton("𝙽𝚎𝚡𝚝»»»", callback_data=f"next_{req}_{key}_{n_offset}")])
             else:
                 btn.append(
                     [
@@ -225,7 +225,7 @@ async def next_page(bot, query):
                     [InlineKeyboardButton("«««Back", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"⚜ ᴩᴀɢᴇꜱ {math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages")]
                 )
             elif off_set is None:
-                btn.append([InlineKeyboardButton("⚜", callback_data="pages"), InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages"), InlineKeyboardButton("𝙽𝚎𝚡𝚝»»»", callback_data=f"next_{req}_{key}_{n_offset}")])
+                btn.append([InlineKeyboardButton("⚜", callback_data="pages"), InlineKeyboardButton(f"⚜ {math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages"), InlineKeyboardButton("𝙽𝚎𝚡𝚝»»»", callback_data=f"next_{req}_{key}_{n_offset}")])
             else:
                 btn.append(
                     [
@@ -247,7 +247,7 @@ async def next_page(bot, query):
                 [InlineKeyboardButton("«««Back", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"⚜ ᴩᴀɢᴇꜱ {math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages")]
             )
         elif off_set is None:
-            btn.append([InlineKeyboardButton("⚜", callback_data="pages"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages"), InlineKeyboardButton("𝙽𝚎𝚡𝚝»»»", callback_data=f"next_{req}_{key}_{n_offset}")])
+            btn.append([InlineKeyboardButton("⚜", callback_data="pages"), InlineKeyboardButton(f"⚜ {math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages"), InlineKeyboardButton("𝙽𝚎𝚡𝚝»»»", callback_data=f"next_{req}_{key}_{n_offset}")])
         else:
             btn.append(
                 [
@@ -389,7 +389,7 @@ async def filter_qualities_cb_handler(client: Client, query: CallbackQuery):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"📁 {get_size(file.file_size)} ▷ {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'{pre}#{file.file_id}'
+                    text=f"🎬{get_size(file.file_size)}🎥{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -432,17 +432,17 @@ async def filter_qualities_cb_handler(client: Client, query: CallbackQuery):
         try:
             if settings['max_btn']:
                 btn.append(
-                    [InlineKeyboardButton("ᴘᴀɢᴇ", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="ɴᴇxᴛ ⋟",callback_data=f"next_{req}_{key}_{offset}")]
+                    [InlineKeyboardButton("ᴘᴀɢᴇ", callback_data="pages"), InlineKeyboardButton(text=f"⚜ 1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text=""𝙽𝚎𝚡𝚝»»»",callback_data=f"next_{req}_{key}_{offset}")]
                 )
     
             else:
                 btn.append(
-                    [InlineKeyboardButton("ᴘᴀɢᴇ", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text="ɴᴇxᴛ ⋟",callback_data=f"next_{req}_{key}_{offset}")]
+                    [InlineKeyboardButton("ᴘᴀɢᴇ", callback_data="pages"), InlineKeyboardButton(text=f"⚜ 1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text=""𝙽𝚎𝚡𝚝»»»",callback_data=f"next_{req}_{key}_{offset}")]
                 )
         except KeyError:
             await save_group_settings(query.message.chat.id, 'max_btn', True)
             btn.append(
-                [InlineKeyboardButton("ᴘᴀɢᴇ", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="ɴᴇxᴛ ⋟",callback_data=f"next_{req}_{key}_{offset}")]
+                [InlineKeyboardButton("ᴘᴀɢᴇ", callback_data="pages"), InlineKeyboardButton(text=f"⚜ 1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text=""𝙽𝚎𝚡𝚝»»»",callback_data=f"next_{req}_{key}_{offset}")]
             )
     else:
         btn.append(
@@ -552,7 +552,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"📁 {get_size(file.file_size)} ▷ {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'{pre}#{file.file_id}'
+                    text=f"🎬{get_size(file.file_size)}🎥{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -745,7 +745,7 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"📁 {get_size(file.file_size)} ▷ {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'{pre}#{file.file_id}'
+                    text=f"🎬{get_size(file.file_size)}🎥{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -1397,7 +1397,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                  InlineKeyboardButton('ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ', url=link.invite_link),
                  InlineKeyboardButton("ᴠɪᴇᴡ ꜱᴛᴀᴛᴜꜱ", url=f"{query.message.link}")
                ],[
-                 InlineKeyboardButton("🔍 ꜱᴇᴀʀᴄʜ ʜᴇʀᴇ 🔎", url="https://t.me/MoviesLinkSearchBot2")
+                 InlineKeyboardButton("⭕️𝚄𝙿𝙳𝙰𝚃𝙴 𝙲𝙷𝙰𝙽𝙽𝙴𝙻⭕️", url="https://t.me/tvseriezzz_updates")
                ]]
         if query.from_user.id in ADMINS:
             user = await client.get_users(from_user)
@@ -1422,7 +1422,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                  InlineKeyboardButton('ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ', url=link.invite_link),
                  InlineKeyboardButton("ᴠɪᴇᴡ ꜱᴛᴀᴛᴜꜱ", url=f"{query.message.link}")
                ],[
-                 InlineKeyboardButton("🔍 ꜱᴇᴀʀᴄʜ ʜᴇʀᴇ 🔎", url="https://t.me/MoviesLinkSearchBot2")
+                 InlineKeyboardButton("⭕️𝚄𝙿𝙳𝙰𝚃𝙴 𝙲𝙷𝙰𝙽𝙽𝙴𝙻⭕️", url="https://t.me/tvseriezzz_updates")
                ]]
         if query.from_user.id in ADMINS:
             user = await client.get_users(from_user)
@@ -1482,7 +1482,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     InlineKeyboardButton("🚀 ꜰᴀꜱᴛ ᴅᴏᴡɴʟᴏᴀᴅ", url=lazy_download),
                     InlineKeyboardButton("ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ 🧿", url=lazy_stream)
                 ],[
-                    InlineKeyboardButton('📌 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ 📌', url='https://t.me/HP_MOVIES_WORLD')
+                    InlineKeyboardButton("⭕️𝚄𝙿𝙳𝙰𝚃𝙴 𝙲𝙷𝙰𝙽𝙽𝙴𝙻⭕️", url="https://t.me/tvseriezzz_updates")
                 ]]
             else:
                 await query.answer("🚸 ɴᴏᴛᴇ :\nᴀᴅ-ꜰʀᴇᴇ ꜱᴇʀᴠɪᴄᴇ ɪꜱ ᴏɴʟʏ ꜰᴏʀ ᴘʀᴇᴍɪᴜᴍ ᴜꜱᴇʀꜱ.\n\nᴛᴏ ᴋɴᴏᴡ ᴍᴏʀᴇ ᴄʜᴇᴄᴋ ᴘʟᴀɴꜱ.", show_alert=True)
@@ -1591,7 +1591,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "qr_info":
         buttons = [[
-            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', user_id=int(767250672))
+            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', user_id=int(387998213))
         ],[
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='purchase')
         ]]
@@ -1604,7 +1604,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "seeplans":
         btn = [[
-            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ', user_id=int(767250672))
+            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ', user_id=int(387998213))
         ],[
             InlineKeyboardButton('❌ ᴄʟᴏꜱᴇ ❌', callback_data='close_data')
         ]]
@@ -2107,7 +2107,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"📁 {get_size(file.file_size)} ▷ {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'{pre}#{file.file_id}'
+                    text=f"🎬{get_size(file.file_size)}🎥{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -2151,16 +2151,16 @@ async def auto_filter(client, msg, spoll=False):
         try:
             if settings['max_btn']:
                 btn.append(
-                    [InlineKeyboardButton("⚜ 1/1 ⚜", callback_data="pages"), InlineKeyboardButton(text=f"⚜ 1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="𝙽𝚎𝚡𝚝»»»",callback_data=f"next_{req}_{key}_{offset}")]
+                    [InlineKeyboardButton("⚜", callback_data="pages"), InlineKeyboardButton(text=f"⚜ 1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="𝙽𝚎𝚡𝚝»»»",callback_data=f"next_{req}_{key}_{offset}")]
                 )
             else:
                 btn.append(
-                    [InlineKeyboardButton("⚜ 1/1 ⚜", callback_data="pages"), InlineKeyboardButton(text=f"⚜ 1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text="𝙽𝚎𝚡𝚝»»»",callback_data=f"next_{req}_{key}_{offset}")]
+                    [InlineKeyboardButton("⚜", callback_data="pages"), InlineKeyboardButton(text=f"⚜ 1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text="𝙽𝚎𝚡𝚝»»»",callback_data=f"next_{req}_{key}_{offset}")]
                 )
         except KeyError:
             await save_group_settings(message.chat.id, 'max_btn', True)
             btn.append(
-                [InlineKeyboardButton("⚜ 1/1 ⚜", callback_data="pages"), InlineKeyboardButton(text=f"⚜ 1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="𝙽𝚎𝚡𝚝»»»",callback_data=f"next_{req}_{key}_{offset}")]
+                [InlineKeyboardButton("⚜", callback_data="pages"), InlineKeyboardButton(text=f"⚜ 1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="𝙽𝚎𝚡𝚝»»»",callback_data=f"next_{req}_{key}_{offset}")]
             )
     else:
         btn.append(
@@ -2207,15 +2207,15 @@ async def auto_filter(client, msg, spoll=False):
         if not settings["button"]:
             cap+="\n\n<b>📚 <u>Your Requested Files</u> 👇\n\n</b>"
             for file in files:
-                cap += f"<b>\n<a href='https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}'> 📁 {get_size(file.file_size)} ▷ {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n</a></b>"
+                cap += f"<b>\n<a href='https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}'>🎬{get_size(file.file_size)}🎥{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n</a></b>"
     else:
         if settings["button"]:
-            cap = f"<b>🧿 ᴛɪᴛʟᴇ : <code>{search}</code>\n📂 ᴛᴏᴛᴀʟ ꜰɪʟᴇꜱ : <code>{total_results}</code>\n📝 ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ : {message.from_user.mention}\n⏰ ʀᴇsᴜʟᴛ ɪɴ : <code>{remaining_seconds} Sᴇᴄᴏɴᴅs</code>\n⚜️ ᴘᴏᴡᴇʀᴇᴅ ʙʏ : 👇\n⚡ {message.chat.title} \n\n</b>"
+            cap = f"<b>🎬 Title :- <code>{search}</code>\n📂 ᴛᴏᴛᴀʟ ꜰɪʟᴇꜱ : <code>{total_results}</code>\n🗣️ Requested By :- {message.from_user.mention}\n⏰ ʀᴇsᴜʟᴛ ɪɴ : <code>{remaining_seconds} Sᴇᴄᴏɴᴅs</code>\n⚜️ ᴘᴏᴡᴇʀᴇᴅ ʙʏ : 👇\n⚡ {message.chat.title} \n\n</b>"
         else:
-            cap = f"<b>🧿 ᴛɪᴛʟᴇ : <code>{search}</code>\n📂 ᴛᴏᴛᴀʟ ꜰɪʟᴇꜱ : <code>{total_results}</code>\n📝 ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ : {message.from_user.mention}\n⏰ ʀᴇsᴜʟᴛ ɪɴ : <code>{remaining_seconds} Sᴇᴄᴏɴᴅs</code>\n⚜️ ᴘᴏᴡᴇʀᴇᴅ ʙʏ : 👇\n⚡ {message.chat.title} \n\n</b>"
+            cap = f"<b>🎬 Title :- <code>{search}</code>\n📂 ᴛᴏᴛᴀʟ ꜰɪʟᴇꜱ : <code>{total_results}</code>\n🗣️ Requested By :- {message.from_user.mention}\n⏰ ʀᴇsᴜʟᴛ ɪɴ : <code>{remaining_seconds} Sᴇᴄᴏɴᴅs</code>\n⚜️ ᴘᴏᴡᴇʀᴇᴅ ʙʏ : 👇\n⚡ {message.chat.title} \n\n</b>"
             # cap+="<b>Hᴇʏ {message.from_user.mention}, Hᴇʀᴇ ɪs ᴛʜᴇ ʀᴇsᴜʟᴛ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {search} \n\n</b>"
             for file in files:
-                cap += f"<b><a href='https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}'> 📁 {get_size(file.file_size)} ▷ {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n</a></b>"
+                cap += f"<b><a href='https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}'>🎬{get_size(file.file_size)}🎥{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n</a></b>"
 
     if imdb and imdb.get('poster'):
         try:
@@ -2336,7 +2336,7 @@ async def advantage_spell_chok(client, msg):
         if not movielist:
             reqst_gle = query.replace(" ", "+")
             button = [[
-                       InlineKeyboardButton("📝 ʀᴇǫᴜᴇꜱᴛ ʜᴇʀᴇ", url=f"https://t.me/HpMovieRequest")
+                       InlineKeyboardButton("📝 ʀᴇǫᴜᴇꜱᴛ ʜᴇʀᴇ", url=f"https://t.me/tvseriezzz_updates")
             ]]
             if NO_RESULTS_MSG:
                 await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
