@@ -27,7 +27,6 @@ MELCOW_VID = environ.get("MELCOW_VID", "https://telegra.ph/file/85d361ab4cb65110
 SPELL_IMG = environ.get("SPELL_IMG", "https://telegra.ph/file/86b7b7e2aa7e38f328902.jpg")
 SUBSCRIPTION = (environ.get('SUBSCRIPTION', 'https://telegra.ph/file/734170f40b8169830d821.jpg'))
 CODE = (environ.get('CODE', 'https://telegra.ph/file/72f425007b22d28bd935e.jpg'))
-START_MESSAGE = environ.get('START_MESSAGE', script.START_TXT)
 
 #stream link shortner
 STREAM_SITE = (environ.get('STREAM_SITE', 'ziplinker.net'))
